@@ -1,0 +1,11 @@
+cc = g++
+prog = demo_one_population.exe
+obj = sim_one_population.o one_population_ancestral_selection_graph.o ancestral_selection_graph_composer.o ancestral_selection_graph_component.o for_ancestral_selection_graph.o
+
+$(prog):$(obj)
+	$(cc) -o $(prog) $(obj)
+
+sim_one_population.o:one_population_ancestral_selection_graph.h
+one_population_ancestral_selection_graph.o:ancestral_selection_graph_composer.h ancestral_selection_graph_component.h
+ancestral_selection_graph_composer.o:ancestral_selection_graph_component.h
+ancestral_selection_graph_component.o:for_ancestral_selection_graph.h

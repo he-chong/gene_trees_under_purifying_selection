@@ -1,0 +1,11 @@
+cc = g++
+prog = demo_three_species.exe
+obj = sim_three_species.o three_species_ancestral_selection_graph.o ancestral_selection_graph_composer.o ancestral_selection_graph_component.o for_ancestral_selection_graph.o
+
+$(prog):$(obj)
+	$(cc) -o $(prog) $(obj)
+
+sim_three_species.o:three_species_ancestral_selection_graph.h
+three_species_ancestral_selection_graph.o:ancestral_selection_graph_composer.h ancestral_selection_graph_component.h
+ancestral_selection_graph_composer.o:ancestral_selection_graph_component.h
+ancestral_selection_graph_component.o:for_ancestral_selection_graph.h

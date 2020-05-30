@@ -1,0 +1,10 @@
+cc = g++
+prog = demo_within_population.exe
+obj = sim_within_population.o ancestral_selection_graph.o base_ancestral_selection_graph.o for_ancestral_selection_graph.o
+
+$(prog):$(obj)
+	$(cc) -o $(prog) $(obj)
+
+sim_within_population.o:ancestral_selection_graph.h
+ancestral_selection_graph.o:ancestral_selection_graph.h base_ancestral_selection_graph.h
+base_ancestral_selection_graph.o:for_ancestral_selection_graph.h
